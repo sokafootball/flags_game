@@ -15,9 +15,9 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(result => {
-        console.log(result[0])
-        this.setState({countries: result})
+      .then(countries => {
+        console.log(countries[0])
+        this.setState({countries})
        })
   }
 
