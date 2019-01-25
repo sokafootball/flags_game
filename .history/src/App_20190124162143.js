@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      countries: [],
+      countries: [1],
       options: 4
     }
   }
@@ -16,7 +16,10 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => this.setState({countries}, console.log(this.state.countries)))
+      .then(countries => {
+        console.log(countries)
+        this.setState({countries}, console.log(this.state.countries))
+       })
   }
 
   pickCountries = () => {
@@ -33,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        <Game image={''}/>
+        <Game />
       </div>
     );
   }

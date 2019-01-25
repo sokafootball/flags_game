@@ -16,7 +16,7 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => this.setState({countries}, console.log(this.state.countries)))
+      .then(data => this.setState({countries: data}, console.log(this.state.countries)))
   }
 
   pickCountries = () => {
@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        <Game image={''}/>
+        <Game />
       </div>
     );
   }

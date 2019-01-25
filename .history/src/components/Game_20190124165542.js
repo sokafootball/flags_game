@@ -14,7 +14,7 @@ const Game = (props) => {
 }
 
 Game.propTypes = {
-  image: PropTypes.string.isRequired
+  // image: PropTypes.string.isRequired
 }
 
 export default Game

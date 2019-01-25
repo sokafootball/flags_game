@@ -1,0 +1,12 @@
+.title{
+  color: white;
+  font-size: 150%;
+  text-align: center;
+  vertical-align: middle;
+  text-shadow: 2px 2px black;
+  background-position: center;
+  background-size: 150%;
+  background-repeat: repeat;
+  background-image: url("https://cdn3.volusion.com/9xeqe.ayzy4/v/vspfiles/photos/WP21001-2.jpg");
+  height: 120px;
+}

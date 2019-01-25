@@ -16,11 +16,14 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => this.setState({countries}, console.log(this.state.countries)))
+      .then(countries => {
+        this.setState({countries}, this.pickCountries())
+       })
   }
 
   pickCountries = () => {
     let countriesCopy = this.state.countries.slice()
+    console.log(this.state.countries)
     let pickedCountries = []
     for (let i = 0; i < this.state.options; i++){
       const randomIndex = Math.floor(Math.random() * countriesCopy.length)
@@ -33,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        <Game image={''}/>
+        <Game />
       </div>
     );
   }

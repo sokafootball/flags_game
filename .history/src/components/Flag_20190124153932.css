@@ -1,0 +1,7 @@
+.flag {
+  display: flex;
+  /* align-items: center; */
+  height: 400px;
+  align-content: center;
+  width: 600px;
+}

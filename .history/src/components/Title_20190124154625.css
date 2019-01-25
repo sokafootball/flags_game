@@ -1,0 +1,13 @@
+.title{
+  background-image: url("https://cdn3.volusion.com/9xeqe.ayzy4/v/vspfiles/photos/WP21001-2.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 150%;
+  color: white;
+  display: flex;
+  font-size: 150%;
+  height: 120px;
+  justify-content: center;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+}
