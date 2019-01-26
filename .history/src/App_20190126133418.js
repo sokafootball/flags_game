@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   pickCountries = () => {
+    console.log('picked countries')
     let countriesCopy = this.state.countries.slice()
     let pickedCountries = []
     for (let i = 0; i < this.state.optionsNumber; i++){

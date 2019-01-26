@@ -19,6 +19,7 @@ class App extends Component {
     fetch(countriesAPI)
       .then(data => data.json())
       .then(countries => {
+        console.log(countries)
         return this.setState({countries}, this.pickCountries)
       })
       .catch(console.warn)
@@ -33,7 +34,8 @@ class App extends Component {
       pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
     }
     pickedCountries = pickedCountries.map(country =>{
-    return {...country, isCorrect: false}})
+    console.log(country)
+    return {...country[0], isCorrect: false}})
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})
   }

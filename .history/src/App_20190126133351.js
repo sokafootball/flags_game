@@ -33,6 +33,7 @@ class App extends Component {
       pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
     }
     pickedCountries = pickedCountries.map(country =>{
+    console.log(country)
     return {...country, isCorrect: false}})
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})

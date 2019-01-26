@@ -9,8 +9,7 @@ class App extends Component {
     this.state = {
       countries: [],
       options: [],
-      optionsNumber: 4,
-      updated: false
+      optionsNumber: 4
     }
   }
 
@@ -18,11 +17,12 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => {
-        return this.setState({countries}, this.pickCountries)
-      })
+      .then(countries => this.setState({countries}))
       .catch(console.warn)
-    // this.pickCountries()
+  }
+
+  componentDidUpdate(){
+    this.pickCountries()
   }
 
   pickCountries = () => {
@@ -30,20 +30,19 @@ class App extends Component {
     let pickedCountries = []
     for (let i = 0; i < this.state.optionsNumber; i++){
       const randomIndex = Math.floor(Math.random() * countriesCopy.length)
-      pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
+      pickedCountries[i] = countriesCopy.splice(randomIndex, 1)
     }
-    pickedCountries = pickedCountries.map(country =>{
-    return {...country, isCorrect: false}})
-    pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
+    pickedCountries = pickedCountries.map(country => ({...country, isCorrect: false}))
+    console.log(Math.floor(Math.random() * pickedCountries.length))
+    // pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})
   }
 
   render() {
-    const gameView = this.state.options ? <Game options={this.state.options} /> : <div>Loading...</div>
     return (
       <div className="App">
         <Title />
-        {gameView}
+        <Game countries={this.state.options}/>
       </div>
     );
   }

@@ -18,9 +18,7 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => {
-        return this.setState({countries}, this.pickCountries)
-      })
+      .then(countries => this.setState({countries}, this.pickCountries))
       .catch(console.warn)
     // this.pickCountries()
   }
@@ -30,10 +28,9 @@ class App extends Component {
     let pickedCountries = []
     for (let i = 0; i < this.state.optionsNumber; i++){
       const randomIndex = Math.floor(Math.random() * countriesCopy.length)
-      pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
+      pickedCountries[i] = countriesCopy.splice(randomIndex, 1)
     }
-    pickedCountries = pickedCountries.map(country =>{
-    return {...country, isCorrect: false}})
+    pickedCountries = pickedCountries.map(country => ({...country, isCorrect: false}))
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})
   }

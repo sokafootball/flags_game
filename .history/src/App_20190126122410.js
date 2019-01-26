@@ -18,28 +18,41 @@ class App extends Component {
     const countriesAPI = 'https://restcountries.eu/rest/v2/all'
     fetch(countriesAPI)
       .then(data => data.json())
-      .then(countries => {
-        return this.setState({countries}, this.pickCountries)
-      })
+      .then(countries => this.setState({countries}))
       .catch(console.warn)
-    // this.pickCountries()
+  }
+
+  componentDidUpdate(){
+    // console.log('App Component Updated')
+    if(!this.state.updated){
+      this.pickCountries()
+      this.setState({updated: true}) //stops a loop of infinite calls
+    }
   }
 
   pickCountries = () => {
     let countriesCopy = this.state.countries.slice()
+    // console.log(countriesCopy)
     let pickedCountries = []
     for (let i = 0; i < this.state.optionsNumber; i++){
       const randomIndex = Math.floor(Math.random() * countriesCopy.length)
-      pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
+      pickedCountries[i] = countriesCopy.splice(randomIndex, 1)
     }
-    pickedCountries = pickedCountries.map(country =>{
-    return {...country, isCorrect: false}})
+    pickedCountries = pickedCountries.map(country => ({...country, isCorrect: false}))
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})
+    // console.log(pickedCountries)
   }
 
   render() {
-    const gameView = this.state.options ? <Game options={this.state.options} /> : <div>Loading...</div>
+    console.log(`App.js Render method called`)
+    let gameView = <div>Loading...</div>
+    const {options} = this.state
+    console.log(options)
+    if (options && options.length > 0){
+      gameView = <Game options={this.state.options} />
+      console.log(options)
+    }
     return (
       <div className="App">
         <Title />

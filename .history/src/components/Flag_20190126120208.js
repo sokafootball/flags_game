@@ -3,6 +3,7 @@ import './Flag.css'
 import PropTypes from 'prop-types'
 
 const Flag = (props) => {
+  console.log(`image prop in flag: ${props.image}`)
   const style = {
     backgroundImage: `url(${props.image})`
   }
@@ -15,7 +16,7 @@ const Flag = (props) => {
 }
 
 Flag.defaultProps = {
-  image: ""
+  // image: ""
 }
 
 Flag.propTypes = {
