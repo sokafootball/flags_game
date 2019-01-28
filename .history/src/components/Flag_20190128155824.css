@@ -1,6 +1,6 @@
 .flag {
   display: block;
-  margin: auto;
+  margin: 0 auto;
   height: 400px;
   width: 600px;
   background-size: 100%;

@@ -18,7 +18,7 @@ const Game = (props) => {
         radioClick={props.radioClick}
         selectedOption={props.selectedOption}/>
       {flagView}
-      <p className="score">Score: {props.score}</p>
+      <p>Score: {props.score}</p>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import './Title.css'
 
-const Title = (props) => {
+const Title = () => {
   return(
     <div className="title">
-      <h1>Guess The </h1>
+      <h1>Guess The Flag</h1>
     </div>
   )
 }

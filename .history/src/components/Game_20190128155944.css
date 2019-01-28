@@ -5,10 +5,5 @@ body {
 .game {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.score {
-  font-weight: bold;
-  font-size: 5em
+  justify-content: flex-start;
 }

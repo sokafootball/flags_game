@@ -1,6 +1,5 @@
 import React from 'react'
 import './Guesses.css'
-import Button from './Button'
 
 const Guesses = (props) => {
   const radioBtns = props.options.map((option, index) => {
@@ -18,7 +17,6 @@ const Guesses = (props) => {
   return(
     <form className="guesses">
       {radioBtns}
-      <Button guessColor={props.guessColor}/>
     </form>
   )
 }

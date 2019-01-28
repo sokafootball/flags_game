@@ -7,8 +7,3 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
-.score {
-  font-weight: bold;
-  font-size: 5em
-}
