@@ -9,7 +9,7 @@ const Guesses = (props) => {
         name="country"
         value={option.name}
         onChange={props.radioClick}
-        checked={option.name === props.selectedOption}>
+        checked={false}>
       </input>
       <label>{option.name}</label>
     </div>
