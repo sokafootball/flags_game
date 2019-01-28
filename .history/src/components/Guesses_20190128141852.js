@@ -7,12 +7,12 @@ const Guesses = (props) => {
       <input
         type="radio"
         name="country"
-        value={option.name}
-        onChange={props.radioClick}>
+        value={option.name}>
       </input>
       <label>{option.name}</label>
     </div>
   })
+  console.log(radioBtns[0])
   return(
     <form className="guesses">
       {radioBtns}

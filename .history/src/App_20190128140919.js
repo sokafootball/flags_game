@@ -10,27 +10,18 @@ class App extends Component {
       countries: [],
       options: [],
       optionsNumber: 4,
-      selectedOption: '',
-      correctOption: '',
-      score: 0
+      updated: false
     }
     this.guessColor = this.guessColor.bind(this)
-    this.radioClick = this.radioClick.bind(this)
   }
 
-  radioClick = (e) => {
-    this.setState({selectedOption: e.target.value})
-  }
-
-  guessColor = (e) => {
-    if (this.state.selectedOption === this.state.correctOption){
-      console.log("Correct!")
-      this.setState(prevState => {prevState.score++})
-    } else {
-      console.log("Wrong!")
-      this.setState({score: 0})
-    }
-    this.pickCountries()
+  guessColor = () => {
+    console.log("guessColor")
+    //if the color in the data is equal to the correct color
+      //add 1 point
+    //else
+      //reset points to 0
+    //generate a new set of options with a new flag
   }
 
   componentDidMount(){
@@ -43,12 +34,6 @@ class App extends Component {
       .catch(console.warn)
   }
 
-  componentDidUpdate() {
-    console.log(`Correct Option: ${this.state.correctOption}`)
-    console.log(`Selected Option: ${this.state.selectedOption}`)
-    console.log(`Score: ${this.state.score}`)
-  }
-
   pickCountries = () => {
     let countriesCopy = this.state.countries.slice()
     let pickedCountries = []
@@ -59,20 +44,16 @@ class App extends Component {
     pickedCountries = pickedCountries.map(country =>{
     return {...country, isCorrect: false}})
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
-    this.setState({
-      options: pickedCountries,
-      correctOption: pickedCountries.find(country => country.isCorrect).name,
-      selectedOption: pickedCountries[0].name
-    })
+    this.setState({options: pickedCountries})
+    console.log(pickedCountries)
   }
 
   render() {
-    const gameView = this.state.options ? <Game options={this.state.options} guessColor={this.guessColor} radioClick={this.radioClick}/> : <div>Loading...</div>
+    const gameView = this.state.options ? <Game options={this.state.options} guessColor={this.guessColor}/> : <div>Loading...</div>
     return (
       <div className="App">
         <Title />
         {gameView}
-        {this.state.score}
       </div>
     );
   }

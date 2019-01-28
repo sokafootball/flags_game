@@ -23,14 +23,17 @@ class App extends Component {
   }
 
   guessColor = (e) => {
+    //if the country selected is equal to the correct country
     if (this.state.selectedOption === this.state.correctOption){
       console.log("Correct!")
-      this.setState(prevState => {prevState.score++})
     } else {
       console.log("Wrong!")
-      this.setState({score: 0})
     }
     this.pickCountries()
+      //add 1 point
+    //else
+      //reset points to 0
+    //generate a new set of options with a new flag
   }
 
   componentDidMount(){
@@ -44,9 +47,8 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log(`Correct Option: ${this.state.correctOption}`)
-    console.log(`Selected Option: ${this.state.selectedOption}`)
-    console.log(`Score: ${this.state.score}`)
+    // console.log(`Correct Oprion: ${this.state.correctOption}`)
+    // console.log(`Selected Oprion: ${this.state.selectedOption}`)
   }
 
   pickCountries = () => {
@@ -61,7 +63,7 @@ class App extends Component {
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({
       options: pickedCountries,
-      correctOption: pickedCountries.find(country => country.isCorrect).name,
+      correctOption: pickedCountries.find(),
       selectedOption: pickedCountries[0].name
     })
   }
@@ -72,7 +74,6 @@ class App extends Component {
       <div className="App">
         <Title />
         {gameView}
-        {this.state.score}
       </div>
     );
   }

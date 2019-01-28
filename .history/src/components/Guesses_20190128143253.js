@@ -13,6 +13,7 @@ const Guesses = (props) => {
       <label>{option.name}</label>
     </div>
   })
+  console.log(radioBtns[0])
   return(
     <form className="guesses">
       {radioBtns}

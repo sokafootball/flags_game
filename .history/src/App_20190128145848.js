@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   guessColor = (e) => {
+    //if the country selected is equal to the correct country
     if (this.state.selectedOption === this.state.correctOption){
       console.log("Correct!")
       this.setState(prevState => {prevState.score++})
@@ -31,6 +32,10 @@ class App extends Component {
       this.setState({score: 0})
     }
     this.pickCountries()
+      //add 1 point
+    //else
+      //reset points to 0
+    //generate a new set of options with a new flag
   }
 
   componentDidMount(){
@@ -72,7 +77,6 @@ class App extends Component {
       <div className="App">
         <Title />
         {gameView}
-        {this.state.score}
       </div>
     );
   }

@@ -72,7 +72,6 @@ class App extends Component {
       <div className="App">
         <Title />
         {gameView}
-        {this.state.score}
       </div>
     );
   }

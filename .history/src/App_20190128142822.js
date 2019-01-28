@@ -15,22 +15,15 @@ class App extends Component {
       score: 0
     }
     this.guessColor = this.guessColor.bind(this)
-    this.radioClick = this.radioClick.bind(this)
-  }
-
-  radioClick = (e) => {
-    this.setState({selectedOption: e.target.value})
   }
 
   guessColor = (e) => {
-    if (this.state.selectedOption === this.state.correctOption){
-      console.log("Correct!")
-      this.setState(prevState => {prevState.score++})
-    } else {
-      console.log("Wrong!")
-      this.setState({score: 0})
-    }
-    this.pickCountries()
+    console.log(e.targ)
+    //if the country selected is equal to the correct country
+      //add 1 point
+    //else
+      //reset points to 0
+    //generate a new set of options with a new flag
   }
 
   componentDidMount(){
@@ -44,35 +37,29 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log(`Correct Option: ${this.state.correctOption}`)
-    console.log(`Selected Option: ${this.state.selectedOption}`)
-    console.log(`Score: ${this.state.score}`)
+    console.log(this.state.correctOption)
   }
 
   pickCountries = () => {
     let countriesCopy = this.state.countries.slice()
     let pickedCountries = []
+    const correctOpionIndex = Math.floor(Math.random() * pickedCountries.length)
     for (let i = 0; i < this.state.optionsNumber; i++){
       const randomIndex = Math.floor(Math.random() * countriesCopy.length)
       pickedCountries[i] = countriesCopy.splice(randomIndex, 1).pop()
     }
     pickedCountries = pickedCountries.map(country =>{
     return {...country, isCorrect: false}})
-    pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
-    this.setState({
-      options: pickedCountries,
-      correctOption: pickedCountries.find(country => country.isCorrect).name,
-      selectedOption: pickedCountries[0].name
-    })
+    pickedCountries[correctOpionIndex].isCorrect = true
+    this.setState({options: pickedCountries, correctOption: pickedCountries[correctOpionIndex].name})
   }
 
   render() {
-    const gameView = this.state.options ? <Game options={this.state.options} guessColor={this.guessColor} radioClick={this.radioClick}/> : <div>Loading...</div>
+    const gameView = this.state.options ? <Game options={this.state.options} guessColor={this.guessColor}/> : <div>Loading...</div>
     return (
       <div className="App">
         <Title />
         {gameView}
-        {this.state.score}
       </div>
     );
   }

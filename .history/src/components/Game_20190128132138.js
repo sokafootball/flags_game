@@ -12,7 +12,7 @@ const Game = (props) => {
   }
   return(
     <div className="game">
-      <Guesses options={props.options} guessColor={props.guessColor} radioClick={props.radioClick}/>
+      <Guesses options={props.options} guessColor={props.guessColor}/>
       {flagView}
     </div>
   )
