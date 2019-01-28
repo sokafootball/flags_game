@@ -6,6 +6,7 @@ const Guesses = ({options}) => {
     return <div key={index}>
       <input
         type="radio"
+
         name="country"
         value={option.name}>
       </input>
@@ -16,7 +17,6 @@ const Guesses = ({options}) => {
   return(
     <div className="guesses">
       {radioBtns}
-      <button type="button" onClick={() => {}}>Try</button>
     </div>
   )
 }

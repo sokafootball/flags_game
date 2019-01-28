@@ -11,7 +11,7 @@ const Game = ({options}) => {
     flagView = <Flag image={correctFlag}/>
   }
   return(
-    <div className="game">
+    <div>
       <Guesses options={options}/>
       {flagView}
     </div>

@@ -35,7 +35,6 @@ class App extends Component {
     return {...country, isCorrect: false}})
     pickedCountries[Math.floor(Math.random() * pickedCountries.length)].isCorrect = true
     this.setState({options: pickedCountries})
-    console.log(pickedCountries)
   }
 
   render() {

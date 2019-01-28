@@ -3,20 +3,19 @@ import './Guesses.css'
 
 const Guesses = ({options}) => {
   const radioBtns = options.map((option, index) => {
-    return <div key={index}>
+    return <div>
       <input
         type="radio"
+        key={index}
         name="country"
         value={option.name}>
       </input>
-      <label>{option.name}</label>
+      <p>{option.name}</p>
     </div>
   })
-  console.log(radioBtns[0])
   return(
-    <div className="guesses">
+    <div>
       {radioBtns}
-      <button type="button" onClick={() => {}}>Try</button>
     </div>
   )
 }

@@ -16,7 +16,6 @@ const Guesses = ({options}) => {
   return(
     <div className="guesses">
       {radioBtns}
-      <button type="button" onClick={() => {}}>Try</button>
     </div>
   )
 }

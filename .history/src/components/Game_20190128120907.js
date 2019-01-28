@@ -11,7 +11,7 @@ const Game = ({options}) => {
     flagView = <Flag image={correctFlag}/>
   }
   return(
-    <div className="game">
+    <div>
       <Guesses options={options}/>
       {flagView}
     </div>
@@ -27,3 +27,6 @@ Game.propTypes = {
 }
 
 export default Game
+
+
+//temp1.find(obj => obj.isCorrect)['0'].flag

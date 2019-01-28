@@ -11,8 +11,8 @@ const Game = ({options}) => {
     flagView = <Flag image={correctFlag}/>
   }
   return(
-    <div className="game">
-      <Guesses options={options}/>
+    <div>
+      {/* <Guesses options={options}/> */}
       {flagView}
     </div>
   )
